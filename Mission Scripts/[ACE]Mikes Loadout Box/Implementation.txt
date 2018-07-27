@@ -1,0 +1,53 @@
+Explanation;
+
+To create an actual loadout,
+
+Go into the Virtual Arsenal, Create it in FULL. (including binos, Weapons, Ammo & Items.) & Radio
+
+Then click "Export"
+
+Paste it into one of the "Example" SQF Files. 
+
+Then you need to change all the lines with "this" to "player"
+
+Copy the "Gear" folder into your mission folder.
+
+in the Editor, Place down the box you want to use as the "Loadout box"
+
+Paste into the init field;
+
+
+this allowdamage false; this enablesimulation false;  
+this addAction ["Example Medic", "Gear\Example.sqf"]; 
+this addAction ["Medic", "Gear\Medic.sqf"]; 
+this addAction ["Explosive Specialist", "Gear\ES.sqf"]; 
+this addAction ["Rifleman", "Gear\Rifleman.sqf"];
+
+First line is to completely Prevent people Ramming/Destroying this box if it's necessary.
+Second Line; "Example Medic" is what people will see the Action as, Second calls the Script which forces the Items on you.
+
+The actual "Example.sqf" files can be changed to Medic, SquadLead, Sniper etc. It makes it easier for you to know what exactly it is you have.
+
+When you paste from the Arsenal, You can shorten down the code to make it easier on yourself. 
+
+Lines that begin with "Comment" can be deleted.
+
+The line which sets the Identity can be deleted.
+
+
+To go more in depth with minor changes, Remove the relevant lines of gear you don't want removed.
+
+removeAllWeapons player; // Obvious, Removes all weapons
+removeAllItems player; // Anything classed as an Item
+removeAllAssignedItems player; // Radios, GPS, Map Etc
+removeUniform player; // Uniform
+removeVest player; // Vest
+removeBackpack player; // Backpack
+removeHeadgear player; // Headgear
+removeGoggles player; // NVGs / Facewear
+
+
+Last Note; If you have Grenades in a loadout, but you don't have any "Remove" lines that remove Grenades. If they take that loadout repeatedly (or select the wrong one)
+They'll end up stockpiling grenades and it won't correct the normal uniform.
+
+If you're forcing a full loadout this way, Just keep all the Remove lines.
