@@ -1,7 +1,7 @@
 class Header {
     gameType = Coop;
     minPlayers = 1;  // ALWAYS set this to 1.
-    maxPlayers = 5;  // Always ensure this is set to the amount of units you have that are Playable.
+    maxPlayers = 11;  // Always ensure this is set to the amount of units you have that are Playable.
 };
 // everything below is self explanatory.
 author = "Niko";
