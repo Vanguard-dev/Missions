@@ -4,9 +4,9 @@ class Header {
     maxPlayers = 11;  // Always ensure this is set to the amount of units you have that are Playable.
 };
 // everything below is self explanatory.
-author = "Niko";
-OnLoadName = "Operation Sandstorm";
-OnLoadMission = "Two squads of American special forces are sent into the ISAS controlled city of Zargabad to destroy emplacements and fortifications so the main force can move in.";
+author = "Brandon";
+OnLoadName = "Vanguard; Operation Nimrod";
+OnLoadMission = "Fooking Laser Sights";
 OnLoadMissionTime = 1;
 
 enableDebugConsole = 1; // 0 = Not Available / 1 = Admin Logged / 2 = Anyone (NEVER DO THIS.)
