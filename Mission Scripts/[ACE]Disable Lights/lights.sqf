@@ -12,3 +12,6 @@ for [{_i=0},{_i < (count _types)},{_i=_i+1}] do
 
 // Place down any marker, set it's variable name to "Lights" (if it's a normal marker you can make it invisible.)
 // the "2500" is the distance, i wouldn't set it to cover the map thats not really a good idea.
+// to use the script; 
+// poo = this addAction ["Turn off lights", "0 = [0.95] execVM 'lights.sqf'"];
+// add that to something, then manually interact.
