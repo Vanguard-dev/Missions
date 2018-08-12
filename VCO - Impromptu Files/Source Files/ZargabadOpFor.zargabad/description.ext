@@ -1,0 +1,35 @@
+class Header {
+    gameType = Coop;
+    minPlayers = 1;  // ALWAYS set this to 1.
+    maxPlayers = 21;  // Always ensure this is set to the amount of units you have that are Playable.
+};
+// everything below is self explanatory.
+author = "iReckonItzMike";
+OnLoadName = "Vanguard; Zargabad Impromptu OpFor";
+OnLoadMission = "";
+OnLoadMissionTime = 1;
+
+enableDebugConsole = 1; // 0 = Not Available / 1 = Admin Logged / 2 = Anyone (NEVER DO THIS.)
+disabledAI = 1; // Disables any Playable slots from becoming AI
+respawnOnStart = 0; // Don't spawn in Dead. This is important.
+
+respawn = 3; // Players Respawn at Base Marker (Zeus still has to place Respawn Module)
+respawnDelay = 30; // Time in Seconds until Respawn
+respawnTemplatesWest[] = {"ace_spectator","Counter"}; // Forces into Ace Spectator & Shows Countdown Timer
+
+corpseManagerMode = 0; //Type of removed bodies: 0 - none, 1 - all, 2 - only respawnable, 3 - only non-respawnable 
+corpseLimit = 2; //Max number of bodies which can be available at the same time. When exceeded, start deleting immediately. 
+corpseRemovalMinTime = 60; //Minimal time in seconds a body stays in the scene (can't be removed sooner). 
+corpseRemovalMaxTime = 120; //Maximal time in seconds after which a dead body is removed (can't stay longer)
+aiKills = 1; // 0: Disabled - 1: Enabled.
+
+disableChannels[] = {
+	{0, true, true}, //--- Global Chat
+//	{1, true, true}, //--- Side Chat
+	{2, true, true}, //--- Command Chat
+	{3, true, true}, //--- Group Chat
+	{4, true, true}, //--- Vehicle Chat
+	{5, true, true} //--- Direct Chat
+//	{6, true, true} //--- System Chat
+};
+
