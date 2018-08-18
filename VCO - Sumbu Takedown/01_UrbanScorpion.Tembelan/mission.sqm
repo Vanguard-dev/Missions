@@ -5,17 +5,17 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=513;
+	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=249;
+		nextID=309;
 	};
 	class Camera
 	{
-		pos[]={8576.0791,99.093704,7636.0337};
-		dir[]={0.70571572,-0.53728837,-0.46192858};
-		up[]={0.44958115,0.84337723,-0.29427612};
-		aside[]={-0.54769427,-3.1010131e-008,-0.83674264};
+		pos[]={8409.0918,54.821571,6758.3257};
+		dir[]={0.62342012,-0.59746158,-0.50440198};
+		up[]={0.4645088,0.80185914,-0.37582836};
+		aside[]={-0.62900305,-8.0419704e-007,-0.77742088};
 	};
 };
 binarizationWanted=0;
@@ -67,13 +67,15 @@ addons[]=
 	"A3_Weapons_F_Ammoboxes",
 	"ace_cargo",
 	"A3_Boat_F_EPC_Submarine_01",
-	"A3_Boat_F_Boat_Transport_01"
+	"A3_Boat_F_Boat_Transport_01",
+	"rhs_c_a2port_air",
+	"rhs_c_radars"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=41;
+		items=43;
 		class Item0
 		{
 			className="A3_Modules_F_Curator";
@@ -346,6 +348,20 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item41
+		{
+			className="rhs_c_a2port_air";
+			name="A2 ported air";
+			author="Red Hammer Studios";
+			url="http://www.rhsmods.org/";
+		};
+		class Item42
+		{
+			className="rhs_c_radars";
+			name="Radars";
+			author="Red Hammer Studios";
+			url="http://www.rhsmods.org/";
+		};
 	};
 };
 randomSeed=5802969;
@@ -472,7 +488,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=15;
+		items=17;
 		class Item0
 		{
 			dataType="Logic";
@@ -4999,6 +5015,37 @@ class Mission
 				};
 				nAttributes=1;
 			};
+		};
+		class Item15
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8855.6523,137.8878,6125.7124};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=294;
+			type="RHS_Mi8amt_civilian";
+		};
+		class Item16
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9240.4766,102.14397,6075.2358};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="task_00_building00";
+			};
+			id=297;
+			type="rhs_2P3_2";
 		};
 	};
 	class Connections
