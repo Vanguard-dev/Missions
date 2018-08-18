@@ -32,4 +32,3 @@ disableChannels[] = {
 	{5, true, true} //--- Direct Chat
 //	{6, true, true} //--- System Chat
 };
-

@@ -1,3 +1,8 @@
+vcoSecondTask = {
+	hint "Start the second task";
+};
+
+// Initial task function
 vcoFirstTask = {
 	// Fetch reference to our initial objective entity
 	_task00ObjectiveName = "task_00_building00";
@@ -7,13 +12,13 @@ vcoFirstTask = {
 	};
 
 	// Create and assign the first task
-	[west, "task_00", ["You need to disable the communication jammer as soon as possible to establish tactical uplink with the command.", "Disable Communication Jammer"], _task00Objective, true, 1, false, "destroy", true] call BIS_fnc_taskCreate;
+	[west, "task_00", ["You need to disable the communication jammer as soon as possible to establish tactical uplink with the command.", "Disable Communication Jammer"], _task00Objective, true, 1, true, "destroy", true] call BIS_fnc_taskCreate;
 	["task_00", "Assigned"] call BIS_fnc_taskSetState;
 
 	// This function is used to complete the event
 	completeFirstTask = {
 		["task_00", "Succeeded"] call BIS_fnc_taskSetState;
-		// TODO: Create and assign the second task
+		call vcoSecondTask;
 	};
 
 	// Add manual action to complete the first objective
@@ -25,4 +30,5 @@ vcoFirstTask = {
 	}];
 };
 
+// Create the initial task
 call vcoFirstTask;
