@@ -8,22 +8,22 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=2086;
+		nextID=2087;
 	};
 	class MarkerIDProvider
 	{
-		nextID=10;
+		nextID=11;
 	};
 	class LayerIndexProvider
 	{
-		nextID=55;
+		nextID=70;
 	};
 	class Camera
 	{
-		pos[]={9152.8662,20.18103,4872.5693};
-		dir[]={-0.070967175,-0.32959625,0.9415434};
-		up[]={-0.024775442,0.94409782,0.32872579};
-		aside[]={0.99725002,-4.2379543e-007,0.075167365};
+		pos[]={9219.5811,265.49866,4698.9404};
+		dir[]={0.01578531,-0.66486675,0.74691486};
+		up[]={0.0140501,0.74694729,0.66473067};
+		aside[]={0.99985743,-9.3634117e-007,-0.02112986};
 	};
 };
 binarizationWanted=0;
@@ -714,7 +714,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=115;
+		items=116;
 		class Item0
 		{
 			dataType="Logic";
@@ -925,7 +925,7 @@ class Mission
 			side="West";
 			class Entities
 			{
-				items=6;
+				items=5;
 				class Item0
 				{
 					dataType="Object";
@@ -2006,17 +2006,6 @@ class Mission
 						nAttributes=4;
 					};
 				};
-				class Item5
-				{
-					dataType="Waypoint";
-					position[]={8405.3789,1.1693335,6755.0483};
-					type="GetOut";
-					class Effects
-					{
-					};
-					showWP="NEVER";
-					id=246;
-				};
 			};
 			class Attributes
 			{
@@ -2118,7 +2107,7 @@ class Mission
 			side="West";
 			class Entities
 			{
-				items=6;
+				items=5;
 				class Item0
 				{
 					dataType="Object";
@@ -3199,17 +3188,6 @@ class Mission
 						nAttributes=4;
 					};
 				};
-				class Item5
-				{
-					dataType="Waypoint";
-					position[]={8387.0762,1.1729772,6746.6982};
-					type="GetOut";
-					class Effects
-					{
-					};
-					showWP="NEVER";
-					id=247;
-				};
 			};
 			class Attributes
 			{
@@ -3311,7 +3289,7 @@ class Mission
 			side="West";
 			class Entities
 			{
-				items=6;
+				items=5;
 				class Item0
 				{
 					dataType="Object";
@@ -4421,17 +4399,6 @@ class Mission
 						nAttributes=4;
 					};
 				};
-				class Item5
-				{
-					dataType="Waypoint";
-					position[]={8427.5693,1.4629966,6757.7935};
-					type="GetOut";
-					class Effects
-					{
-					};
-					showWP="NEVER";
-					id=248;
-				};
 			};
 			class Attributes
 			{
@@ -5131,7 +5098,7 @@ class Mission
 			flags=2;
 			class Attributes
 			{
-				init="call{this engineOn true;" \n "_vel = velocity this;" \n "_dir = direction this;" \n "_speed = 100;" \n "this setVelocity [" \n "  (_vel select 0) + (sin _dir * _speed)," \n "  (_vel select 1) + (cos _dir * _speed)," \n "  (_vel select 2)" \n "];}";
+				init="call{this call VCO_fnc_deleteIfEmpty;" \n "[this, 100] call VCO_fnc_setVehicleSpeed;}";
 			};
 			id=243;
 			type="B_Boat_Transport_01_F";
@@ -5172,7 +5139,7 @@ class Mission
 			flags=2;
 			class Attributes
 			{
-				init="call{this engineOn true;" \n "_vel = velocity this;" \n "_dir = direction this;" \n "_speed = 100;" \n "this setVelocity [" \n "  (_vel select 0) + (sin _dir * _speed)," \n "  (_vel select 1) + (cos _dir * _speed)," \n "  (_vel select 2)" \n "];}";
+				init="call{this call VCO_fnc_deleteIfEmpty;" \n "[this, 100] call VCO_fnc_setVehicleSpeed;}";
 			};
 			id=244;
 			type="B_Boat_Transport_01_F";
@@ -5213,7 +5180,7 @@ class Mission
 			flags=2;
 			class Attributes
 			{
-				init="call{this engineOn true;" \n "_vel = velocity this;" \n "_dir = direction this;" \n "_speed = 100;" \n "this setVelocity [" \n "  (_vel select 0) + (sin _dir * _speed)," \n "  (_vel select 1) + (cos _dir * _speed)," \n "  (_vel select 2)" \n "];}";
+				init="call{this call VCO_fnc_deleteIfEmpty;" \n "[this, 100] call VCO_fnc_setVehicleSpeed;}";
 			};
 			id=245;
 			type="B_Boat_Transport_01_F";
@@ -14689,7 +14656,7 @@ class Mission
 			};
 			id=2085;
 			type="Computer";
-			atlOffset=0.00049972534;
+			atlOffset=0.00050354004;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -14713,6 +14680,15 @@ class Mission
 				};
 				nAttributes=1;
 			};
+		};
+		class Item115
+		{
+			dataType="Marker";
+			position[]={9234.0195,5,4945.5933};
+			name="airfield_sabotage_charge";
+			type="mil_circle";
+			alpha=0;
+			id=2086;
 		};
 	};
 	class Connections

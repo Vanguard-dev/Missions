@@ -35,7 +35,7 @@ disableChannels[] = {
 
 class CfgFunctions 
 {
-	#include "functions.hpp"
+	#include "functions.hpp" 
 };
 
 class CfgDebriefing
@@ -46,7 +46,7 @@ class CfgDebriefing
 		subtitle = "";
 		description = "You successfully gained a foot hold on the island for further operations.";
 		pictureBackground = "";
-		picture = "b_inf";
+		picture = "";
 		pictureColor[] = {0.0,0.3,0.6,1};
 	};
 
@@ -56,7 +56,7 @@ class CfgDebriefing
 		subtitle = "";
 		description = "The destruction of the sabotage charge resulted in a detonation and destruction of the airport.";
 		pictureBackground = "";
-		picture = "b_inf";
+		picture = "";
 		pictureColor[] = {0.0,0.3,0.6,1};
 	};
 };

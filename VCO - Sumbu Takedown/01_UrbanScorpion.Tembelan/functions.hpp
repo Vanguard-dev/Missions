@@ -4,6 +4,8 @@ class VCO
     {
         file = "Utilities";
         class getObjectByName {};
+        class deleteIfEmpty {};
+        class setVehicleSpeed {};
         class makeInterrogationTarget {};
     }
     

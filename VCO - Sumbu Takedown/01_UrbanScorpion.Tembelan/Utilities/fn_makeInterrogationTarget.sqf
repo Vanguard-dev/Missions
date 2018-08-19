@@ -16,7 +16,6 @@ _unit allowDamage false;
 damageHandler =  _unit addEventHandler ["HandleDamage", {
 	params ["_unit", "_selection", "_damage", "_source", "_projectile", "_hitIndex", "_instigator", "_hitPoint"];
 
-	systemChat format ["[DEBUG] HitDamage is %1", _damage];
 	_unit removeEventHandler ["HandleDamage", damageHandler];
 	
 	_target allowDamage true;
@@ -32,8 +31,8 @@ damageHandler =  _unit addEventHandler ["HandleDamage", {
 		
 		_target removeAction interrogationAction;
 
-		// TODO: Callback
-		call callback;
+		private _callbackHandle = spawn callback;
+		waitUntil {scriptDone _callbackHandle};
 
 		_target allowDamage true;
 		executeAction = _target addAction ["Execute", {
