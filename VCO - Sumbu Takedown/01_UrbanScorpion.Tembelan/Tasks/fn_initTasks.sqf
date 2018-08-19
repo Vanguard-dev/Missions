@@ -23,7 +23,19 @@ createInitialTasks = {
 		"The militants have acquired high quality Communication Jammers from their funding partners. It is our primary task to disable these jammers so we can establish tactical command for the reclamation operations.",
 		objNull, west, ["radio"], {
 			systemChat "[DEBUG] Init jammer tasks";
-			// TODO: Jammer parent task logic
+			// Prepare backup jammer logic incase of rogue players
+			task02Name = "task_jammers_02";
+			task02Target = "task_02_jammer" call VCO_fnc_getObjectByName;
+			task02Status = "Assigned";
+			task02EventHandle = 0;
+
+			// Bind an event to handle the destruction of the objective
+			destroyEvent = task02Target addEventHandler ["Killed", {
+				task02Status = "Succeeded";
+				[task02Name, task02Status] call BIS_fnc_taskSetState;
+				["task_jammers", "Succeeded"] call BIS_fnc_taskSetState; // TODO: Move to watcher
+				task02Target removeEventHandler ["Killed", task02EventHandle];
+			}];
 		}, [
 			[
 				"task_jammers_01",
@@ -89,18 +101,7 @@ createSecondJammerTask = {
 		"Destroy the backup Communication Jammer",
 		"To prevent the militants from jamming the communication frequencies again the backup jammer needs to be destroyed. It was last located at a warehouse in the given coordinates.",
 		("task_02_jammer" call VCO_fnc_getObjectByName),
-		west, ["destroy", true, nil, "task_jammers"], {
-			task02Name = param [0];
-			task02Target = param [1];
-			task02EventHandle = 0;
-
-			// Bind an event to handle the destruction of the objective
-			destroyEvent = task02Target addEventHandler ["Killed", {
-				[task02Name, "Succeeded"] call BIS_fnc_taskSetState;
-				["task_jammers", "Succeeded"] call BIS_fnc_taskSetState;
-				task02Target removeEventHandler ["Killed", task02EventHandle];
-			}];
-		}
+		west, ["destroy", task02Status, nil, "task_jammers"]
 	] call VCO_fnc_createTask;
 };
 
