@@ -6,17 +6,18 @@
 // 0 - Target unit. Can be the name of the unit or a direct reference.
 // 1 - Callback function or a script file to be called after the interrogation has been triggered.
 _unit = param [0, objNull, [objNull, ""]];
-callback = param [1, {}, [{}]];
+interrogationCallback = param [1, {}, [{}]];
 
 if (typeName _unit == "STRING") then {
 	_unit = _unit call VCO_fnc_getObjectByName;
 };
 
 _unit allowDamage false;
-damageHandler =  _unit addEventHandler ["HandleDamage", {
+interrogationDamageHandle =  _unit addEventHandler ["HandleDamage", {
 	params ["_unit", "_selection", "_damage", "_source", "_projectile", "_hitIndex", "_instigator", "_hitPoint"];
+	systemChat format ["[DEBUG] Interrogation target %1 hit", _unit];
 
-	_unit removeEventHandler ["HandleDamage", damageHandler];
+	_unit removeEventHandler ["HandleDamage", interrogationDamageHandle];
 	
 	_target allowDamage true;
 	_target setDamage 0.96;
@@ -31,7 +32,7 @@ damageHandler =  _unit addEventHandler ["HandleDamage", {
 		
 		_target removeAction interrogationAction;
 
-		private _callbackHandle = spawn callback;
+		private _callbackHandle = [] spawn interrogationCallback;
 		waitUntil {scriptDone _callbackHandle};
 
 		_target allowDamage true;

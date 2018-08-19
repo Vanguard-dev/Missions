@@ -77,6 +77,27 @@ createInitialTasks = {
 		"Secure the airfield",
 		"We need to secure the airfield to ensure the rapid deployment force won't be annihilated on approach.",
 		objNull, west, ["plane"], {
+			// Prepare task03 conditions
+			task03Name = "task_airfield_01";
+			task03Target = "task_03_hvt" call VCO_fnc_getObjectByName;
+			task03State = "Created";
+
+			[task03Target, {
+				task03State = "Succeeded";
+				[task03Name, task03State] call BIS_fnc_taskSetState;
+				// TODO: Audio and move to directSay?
+				task03Target globalChat "W.. We have a bomb on the airfield.";
+				sleep 5;
+				task03Target globalChat "All I have to do is wave my hand to the control tower and it goes boom.";
+				sleep 5;
+				task03Target globalChat "Now please raise me up a bit so I can wave my hand.";
+				sleep 10;
+				task03Target globalChat "Please?";
+				sleep 2;
+				// TODO: Add defuse logic to task04 controls
+				call createCounterSabotageTask;
+			}] call VCO_fnc_makeInterrogationTarget;
+
 			// Prepare task04 conditions
 			task04Name = "task_airfield_02";
 			task04Target = "task_04_controls" call VCO_fnc_getObjectByName;
@@ -111,24 +132,7 @@ createInterrogationTask = {
 		"Interrogate the Sambu leader",
 		"Interrogate the Sambu leader for the details on the airfield fortifications.",
 		("task_03_hvt" call VCO_fnc_getObjectByName),
-		west, ["talk", nil, nil, "task_airfield"], {
-			task03Name = param [0];
-			_task03Target = param [1];
-
-			[_task03Target, {
-				[task03Name, "Succeeded"] call BIS_fnc_taskSetState;
-				// TODO: Audio and move to directSay?
-				task03Target globalChat "W.. We have a bomb on the airfield.";
-				sleep 2;
-				task03Target globalChat "All I have to do is wave my hand to the control tower and it goes boom.";
-				sleep 2;
-				task03Target globalChat "Now please raise me up a bit so I can wave my hand.";
-				sleep 2;
-				task03Target globalChat "Please?";
-				sleep 2;
-				call createCounterSabotageTask;
-			}] call VCO_fnc_makeInterrogationTarget;
-		}
+		west, ["talk", task03State, nil, "task_airfield"]
 	] call VCO_fnc_createTask;
 };
 
@@ -138,9 +142,7 @@ createCounterSabotageTask = {
 		"Disable the sabotage detonation controls",
 		"Through the interrogation we discovered that the militia planted a sabotage device in the middle of the runway to prevent the use of it. Head there and disable its controls without allowing anyone to detonate it. DO NOT DESTROY IT. Destroying it will most likely trigger the detonation.",
 		("task_04_controls" call VCO_fnc_getObjectByName),
-		west, ["mine", nil, nil, "task_airfield"], {
-			// TODO: Add defuse logic
-		}
+		west, ["mine", nil, nil, "task_airfield"]
 	] call VCO_fnc_createTask;
 };
 
