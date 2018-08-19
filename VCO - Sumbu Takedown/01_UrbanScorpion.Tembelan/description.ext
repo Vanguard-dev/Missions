@@ -32,3 +32,31 @@ disableChannels[] = {
 	{5, true, true} //--- Direct Chat
 //	{6, true, true} //--- System Chat
 };
+
+class CfgFunctions 
+{
+	#include "functions.hpp"
+};
+
+class CfgDebriefing
+{  
+	class Success1
+	{
+		title = "Mission Completed";
+		subtitle = "";
+		description = "You successfully gained a foot hold on the island for further operations.";
+		pictureBackground = "";
+		picture = "b_inf";
+		pictureColor[] = {0.0,0.3,0.6,1};
+	};
+
+	class Failure1
+	{
+		title = "Mission Failed";
+		subtitle = "";
+		description = "The destruction of the sabotage charge resulted in a detonation and destruction of the airport.";
+		pictureBackground = "";
+		picture = "b_inf";
+		pictureColor[] = {0.0,0.3,0.6,1};
+	};
+};
